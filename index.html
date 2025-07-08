@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   <title>Game Zone</title>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d6efd">
+
   <style>
     :root {
       --bg-color: linear-gradient(to right, #0f2027, #203a43, #2c5364);
@@ -362,6 +366,14 @@
       showWelcome(userName);
     };
   </script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(() => console.log("Service Worker registered"))
+      .catch(err => console.error("Service Worker failed:", err));
+  }
+</script>
+
 
 </body>
 </html>
